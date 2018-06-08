@@ -4,7 +4,7 @@
 
 Following the instructions of the activity 2 from Angular' course on OpenClassrooms. I made a Blog app style where we can add a Post, delete One or view one of them on a single page. This is a personal work in order to learn how I can made a web app with Angular.
 
-Every post you add or see is from a public Firebase database. Using a firebase package (not AngularFire).
+Every post you add or see is from a public Firebase database. Using a firebase package to achieve this (not AngularFire).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.5.
 
