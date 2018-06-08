@@ -1,0 +1,16 @@
+<h1>Posts</h1>
+<div class="row">
+	<div class="col-xs-12">
+		<ul class="list-group">
+			<app-post-list-item     *ngFor="let post of posts; let i = index"
+									[postDate]="post.created_at"
+									[postTitle]="post.title"
+									[postContent]="post.content"
+									[postLike]="post.loveIts"
+									[index]="i"> </app-post-list-item>
+		</ul>
+
+		<p *ngIf="posts && posts.length === 0">Aucun post n'est présent dans la BDD</p>
+
+	</div>
+</div>

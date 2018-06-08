@@ -1,0 +1,22 @@
+<div class="row" *ngIf="post">
+	<div class="col-xs-12">
+		<ul class="list-group">
+			<li [ngClass]="{'list-group-item': true,
+				'list-group-item-success': post.loveIts > 0,
+				'list-group-item-danger': post.loveIts < 0}"
+				class="button-list-item">
+
+				
+				<h1>{{ post.title }}</h1>
+				<span>Publié le {{ post.created_at | date: 'd/MM/yyyy à H:mm' }}</span>
+				<p>{{ post.content }}</p>
+				
+<button class="btn btn-danger pull-right button-delete" (click)="deletePost()">Supprimer Post</button>
+				<button class="btn btn-success" (click)="loveItPlus()">Love it !</button>
+				<button class="btn btn-danger" (click)="loveItLess()">Dislike</button>
+			
+			</li>
+		</ul>
+	</div>
+</div>
+

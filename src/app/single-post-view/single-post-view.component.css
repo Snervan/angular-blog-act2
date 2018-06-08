@@ -1,0 +1,52 @@
+span {
+	font-style: italic; 
+	color: grey;
+}
+
+h1 {
+	font-weight: bold;
+}
+
+p {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	color: black;
+}
+
+button {
+	margin-right: 25px;
+	margin-top: 5px;
+}
+
+.button-list-item {
+	margin-right: 0px;
+	margin-bottom: 10px;
+}
+
+.button-delete {
+	margin-top: 5px;
+}
+
+.button-list-item {
+	margin-right: 0px;
+	margin-bottom: 10px;
+}
+
+@media screen and (max-width: 465px) {
+	.button-delete {
+		margin-left: 0px;
+	}
+
+	button {
+	margin-right: 7px;
+	margin-top: 5px;
+	margin-left: 0px;
+}
+}
+
+@media screen and (max-width: 365px) {
+	.button-delete {
+		margin-top: 10px;
+		margin-right: 34vw;
+	}
+}
