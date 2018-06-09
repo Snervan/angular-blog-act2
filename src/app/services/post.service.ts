@@ -22,7 +22,6 @@ export class PostService {
   	firebase.database().ref('/Posts').on(
   		'value', (data) => {
   			this.posts = data.val() ? data.val() : [];
-  			console.log(data);
   			this.emitPosts();
   		});
   	console.log('Données chargées depuis back-end Firebase');
@@ -38,11 +37,6 @@ export class PostService {
   					reject(error);
   				});
   		});
-  }
-
-  savePost() {
-  	firebase.database().ref('/Posts').set(this.posts);
-  	this.emitPosts();
   }
 
   createNewPost(title: string, content: string) {
@@ -64,31 +58,38 @@ export class PostService {
   		nowDate);
 
   	this.posts.push(newPost);
-  	this.savePost();
+
+  	firebase.database().ref('/Posts/').set(this.posts).then(
+  		()=> {
+  			this.emitPosts();
+  		});
   }
 
   setLovePlus(id: number) {
   	this.posts[id].loveIts++;
   	firebase.database().ref('/Posts/'+ id).update(this.posts[id]);
+  	this.emitPosts();
   }
 
   setLoveLess(id: number) {
   	this.posts[id].loveIts--;
   	firebase.database().ref('/Posts/'+ id).update(this.posts[id]);
+  	this.emitPosts();
   }
 
   removePost(id: number) {
 
-	const postToRemove = this.posts.findIndex(
-		(postElement) => {
-		  		if(postElement === this.posts[id]) {
-		  				console.log('PostElement : ' + postElement);
+  	const postToRemove = this.posts.findIndex(
+	  			(postElement) => {
+		  			if(postElement === this.posts[id]) {
 		  				return true;
-		  	}
-		});
+		  			}
+	  			});
+  	this.posts.splice(postToRemove, 1);
 
-	this.posts.splice(postToRemove, 1);
-	firebase.database().ref('/Posts').set(this.posts);
-	this.emitPosts();
+	firebase.database().ref('/Posts').set(this.posts).then(
+		() => {
+			this.emitPosts();
+		});
   }
 }

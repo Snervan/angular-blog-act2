@@ -49,12 +49,10 @@ export class SinglePostViewComponent implements OnInit {
 
   loveItPlus() {
     this.postService.setLovePlus(this.id);
-    this.postService.emitPosts();
   }
 
   loveItLess() {
     this.postService.setLoveLess(this.id);
-    this.postService.emitPosts();
   }
 
   ngOnDestroy() {

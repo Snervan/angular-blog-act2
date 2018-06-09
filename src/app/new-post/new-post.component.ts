@@ -35,6 +35,7 @@ export class NewPostComponent implements OnInit {
   	const formValue = this.postForm.value;
 
   	this.postService.createNewPost(formValue['title'], formValue['content']);
+  	this.postService.emitPosts();
 
   	this.router.navigate(['/posts']);
   }
