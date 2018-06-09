@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -11,7 +11,7 @@ import { Post } from '../models/post.model';
   templateUrl: './single-post-view.component.html',
   styleUrls: ['./single-post-view.component.css']
 })
-export class SinglePostViewComponent implements OnInit {
+export class SinglePostViewComponent implements OnInit, OnDestroy {
 	
   post: Post;
   postSubscribe: Subscription;

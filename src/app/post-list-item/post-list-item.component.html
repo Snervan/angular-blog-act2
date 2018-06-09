@@ -2,7 +2,6 @@
 				'list-group-item-success': postLike > 0,
 				'list-group-item-danger': postLike < 0}" 
 				(click)="onViewArticle();"
-				*ngIf="postDate"
 				class="button-list-item">
 
 	<span class="pull-right">Publié le {{ postDate | date: 'd/MM/yyyy à H:mm' }}</span>
